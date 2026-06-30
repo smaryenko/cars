@@ -12,8 +12,6 @@ dist
 dist-ssr
 *.local
 
-# Generated audio files
-public/audio
 
 # Editor directories and files
 .vscode/*

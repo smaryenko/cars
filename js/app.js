@@ -3,11 +3,15 @@
  */
 
 // Fix for mobile browsers (Samsung Internet, older Chrome) where 100vh
-// includes the browser chrome and cuts off the bottom bar.
+// includes browser chrome and the system navigation bar, cutting off the bottom bar.
+// visualViewport.height is the true visible area — most reliable cross-browser.
 function setVh() {
-  document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+  const h = (window.visualViewport?.height ?? window.innerHeight);
+  document.documentElement.style.setProperty('--vh', `${h * 0.01}px`);
 }
 setVh();
+window.visualViewport?.addEventListener('resize', setVh);
+window.visualViewport?.addEventListener('scroll', setVh);
 window.addEventListener('resize', setVh);
 
 const Characters = (() => {

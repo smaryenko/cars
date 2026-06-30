@@ -20,7 +20,6 @@
 *, *::before, *::after { box-sizing: border-box; }
 html, body {
   margin: 0;
-  height: 100%;
   font-family: system-ui, "Segoe UI", Roboto, sans-serif;
   background: var(--color-bg);
   color: var(--color-text);

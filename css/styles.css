@@ -30,8 +30,8 @@ html, body {
 }
 
 #app {
-  height: 100svh;
-  height: 100vh; /* fallback */
+  height: 100vh;   /* fallback for old browsers */
+  height: 100dvh;  /* dynamic viewport — accounts for mobile browser chrome */
   display: flex;
   flex-direction: column;
   overflow: hidden;

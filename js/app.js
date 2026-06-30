@@ -2,6 +2,14 @@
  * App entry point — wires all modules together, handles view switching.
  */
 
+// Fix for mobile browsers (Samsung Internet, older Chrome) where 100vh
+// includes the browser chrome and cuts off the bottom bar.
+function setVh() {
+  document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+}
+setVh();
+window.addEventListener('resize', setVh);
+
 const Characters = (() => {
   function getFiltered(filter) {
     if (filter !== 'all') return CHARACTERS_DATA.filter(c => c.movie === filter);
